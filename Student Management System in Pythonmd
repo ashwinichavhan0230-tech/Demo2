@@ -1,0 +1,73 @@
+
+class Student:
+    def __init__(self):
+        self.students = []
+
+  def add_student(self):
+        name = input("Enter student name: ")
+        roll_no = int(input("Enter roll number: "))
+        marks = float(input("Enter marks: "))
+
+  student = {
+            "Name": name,
+            "Roll No": roll_no,
+            "Marks": marks
+        }
+
+  self.students.append(student)
+        print("Student added successfully!")
+
+   def view_students(self):
+        if len(self.students) == 0:
+            print("No student records found.")
+        else:
+            for student in self.students:
+                print(student)
+
+  def search_student(self):
+        roll_no = int(input("Enter roll number: "))
+
+   for student in self.students:
+            if student["Roll No"] == roll_no:
+                print("Student Found:", student)
+                return
+
+  print("Student not found!")
+  def delete_student(self):
+        roll_no = int(input("Enter roll number: "))
+
+   for student in self.students:
+           if student["Roll No"] == roll_no:
+                self.students.remove(student)
+                print("Student deleted successfully!")
+                return
+
+  print("Student not found!")
+
+
+s = Student()
+
+while True:
+    print("\n===== STUDENT MANAGEMENT SYSTEM =====")
+    print("1. Add Student")
+    print("2. View Students")
+    print("3. Search Student")
+    print("4. Delete Student")
+    print("5. Exit")
+
+  choice = int(input("Enter your choice: "))
+
+  if choice == 1:
+        s.add_student()
+    elif choice == 2:
+        s.view_students()
+    elif choice == 3:
+        s.search_student()
+    elif choice == 4:
+        s.delete_student()
+    elif choice == 5:
+        print("Thank you!")
+        break
+    else:
+        print("Invalid choice!")
+
